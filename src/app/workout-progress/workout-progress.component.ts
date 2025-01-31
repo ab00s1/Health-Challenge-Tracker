@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WorkoutService } from '../services/workout.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-workout-progress',
@@ -13,11 +14,25 @@ export class WorkoutProgressComponent {
   userData: any[] = [];
   selectedUser: any;
   totalMinutes: number = 0;
+  searchQuery: string | null = null;
 
-  constructor(private workoutService: WorkoutService) {
+  constructor(private workoutService: WorkoutService, private route: ActivatedRoute) {
     this.userData = this.workoutService.getUserData();
-    this.selectedUser = this.userData[0];                 // Default to first user
-    this.calculateTotalMinutes();
+    
+    this.route.queryParams.subscribe(params => {
+      this.searchQuery = params['name'] || null;
+
+      // Filter user data based on searchQuery
+      if (this.searchQuery) {
+        this.selectedUser = this.userData.filter((user) => user.name === this.searchQuery)[0];
+      } else {
+        // Default to the first user if no searchQuery
+        this.selectedUser = this.userData[0];
+      }
+
+      // Calculate total minutes after selecting user
+      this.calculateTotalMinutes();
+    });
   }
 
   selectUser(user: any) {

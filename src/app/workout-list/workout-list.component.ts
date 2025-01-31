@@ -80,7 +80,14 @@ export class WorkoutListComponent {
     }
   }
 
-  navigate() {
-    this.router.navigate(['/workoutList/workoutProgress']);
+  navigate(searchQuery: string ) {
+
+    // console.log(searchQuery);
+
+    if (searchQuery) {
+      this.router.navigate(['/workoutList/workoutProgress'], { queryParams: { name: searchQuery } });
+    } else {
+      this.router.navigate(['/workoutList/workoutProgress']);
+    }
   }
 }
