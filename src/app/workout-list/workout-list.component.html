@@ -1,0 +1,94 @@
+<main
+  class="p-8 fixed top-[50%] left-[50%] transform -translate-[50%] bg-[#ffc861] rounded-xl shadow-lg w-[90%] md:w-[80%] lg:w-[60%]"
+>
+  <h2 class="text-3xl font-semibold underline mb-8 text-center text-[#333]">
+    <i>Workout List</i>
+  </h2>
+
+  <!-- Search and Filter -->
+  <div class="flex justify-between items-center mb-6 space-x-4">
+    <input
+      type="text"
+      id="search"
+      placeholder="Search..."
+      class="p-3 border border-gray-300 rounded-lg w-full md:w-3/4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#ffc861] focus:border-[#ffc861] transition ease-in-out"
+    />
+
+    <div id="filter" class="flex items-center space-x-3">
+      <label for="workoutTypeFilter" class="font-semibold text-gray-700"
+        >Filter by Workout Type:</label
+      >
+      <select
+        id="workoutTypeFilter"
+        class="p-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#ffc861] focus:border-[#ffc861] transition ease-in-out"
+      >
+        <option value="All">All</option>
+        <option value="Running">Running</option>
+        <option value="Cycling">Cycling</option>
+        <option value="Yoga">Yoga</option>
+        <option value="Weightlifting">Weightlifting</option>
+        <option value="Swimming">Swimming</option>
+        <option value="Jump Rope">Jump Rope</option>
+        <option value="Stair Climbing">Stair Climbing</option>
+        <option value="Rowing">Rowing</option>
+        <option value="Hiking">Hiking</option>
+        <option value="Martial Arts">Martial Arts</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Workout Table -->
+  <table
+    id="workoutTable"
+    class="w-full border-collapse shadow-2xl bg-white rounded-lg overflow-hidden"
+  >
+    <thead class="bg-[#ffc861] text-white">
+      <tr>
+        <th class="p-4 text-left">Name</th>
+        <th class="p-4 text-left">Workouts</th>
+        <th class="p-4 text-left">Number of Workouts</th>
+        <th class="p-4 text-left">Total Workout Minutes</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700">
+      <tr class="border-b hover:bg-[#f9f9f9]">
+        <td class="p-4">John Doe</td>
+        <td class="p-4">Running, Cycling</td>
+        <td class="p-4">2</td>
+        <td class="p-4">75</td>
+      </tr>
+      <tr class="border-b hover:bg-[#f9f9f9]">
+        <td class="p-4">Jane Smith</td>
+        <td class="p-4">Swimming, Running</td>
+        <td class="p-4">2</td>
+        <td class="p-4">80</td>
+      </tr>
+      <tr class="border-b hover:bg-[#f9f9f9]">
+        <td class="p-4">Mike Johnson</td>
+        <td class="p-4">Yoga, Cycling</td>
+        <td class="p-4">2</td>
+        <td class="p-4">90</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="pagination mt-6 flex justify-center space-x-2">
+    <a
+      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      >&laquo;</a
+    >
+    <a
+      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out active"
+      >1</a
+    >
+    <a
+      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      >2</a
+    >
+    <a
+      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      >&raquo;</a
+    >
+  </div>
+</main>

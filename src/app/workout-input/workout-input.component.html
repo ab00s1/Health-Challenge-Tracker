@@ -1,0 +1,55 @@
+<main
+  class="fixed w-[40vw] h-[65vh] bg-gradient-to-bl from-orange-400 to-fuchsia-400 top-[50%] left-[50%] transform -translate-[50%] rounded-4xl"
+>
+  <h2 class="text-4xl mx-2.5 my-4 text-white font-serif">Log Your Workout</h2>
+  <form (submit)="handleSubmit($event)" class="flex flex-col gap-1">
+    <label for="userName" class="m-5 flex flex-col">
+      <span class="text-lg font-semibold">Username :</span>
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        required
+        class="p-2 mx-2.5 bg-amber-50 outline-0 rounded-lg text-black"
+      />
+    </label>
+
+    <label for="workoutType" class="m-5 flex flex-col">
+      <span class="text-lg font-semibold">Workout Type :</span>
+      <select
+        name="workoutType"
+        id="workoutType"
+        required
+        class="p-2 mx-2.5 bg-amber-50 outline-0 rounded-lg text-black"
+      >
+        <option value="" disabled selected>Select a workout</option>
+        <option value="Running">Running</option>
+        <option value="Cycling">Cycling</option>
+        <option value="Yoga">Yoga</option>
+        <option value="Weightlifting">Weightlifting</option>
+        <option value="Swimming">Swimming</option>
+        <option value="Jump Rope">Jump Rope</option>
+        <option value="Stair Climbing">Stair Climbing</option>
+        <option value="Rowing">Rowing</option>
+        <option value="Hiking">Hiking</option>
+        <option value="Martial Arts">Martial Arts</option>
+      </select>
+    </label>
+
+    <label for="workoutMinutes" class="m-5 flex flex-col">
+      <span class="text-lg font-semibold">Workout Minutes :</span>
+      <input
+        type="number"
+        placeholder="Workout time in minutes"
+        name="workoutMinutes"
+        id="workoutMinutes"
+        required
+        class="py-2 px-3.5 mx-2.5 bg-amber-50 outline-0 rounded-lg text-black"
+      />
+    </label>
+
+    <button type="submit" class="mx-auto my-4 bg-white text-fuchsia-600 w-[25%] font-semibold cursor-pointer py-2 rounded-lg hover:bg-neutral-800 hover:text-white">
+      Add Workout &rightarrow;
+    </button>
+  </form>
+</main>
