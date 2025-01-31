@@ -54,7 +54,7 @@
     </thead>
     <tbody class="text-gray-700">
       <tr *ngFor="let user of paginatedData" class="border-b hover:bg-[#f9f9f9]">
-        <td class="p-4">{{ user.name }}</td>
+        <td (click)="navigate()" class="p-4 cursor-pointer hover:underline">{{ user.name }}</td>
         <td class="p-4">{{ getWorkoutTypes(user) }}</td>
         <td class="p-4">{{ user.workouts.length }}</td>
         <td class="p-4">{{ getTotalMinutes(user) }}</td>

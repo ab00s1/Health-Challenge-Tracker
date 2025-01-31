@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { WorkoutService } from '../services/workout.service';
 
 @Component({
   selector: 'app-workout-list',
@@ -9,11 +11,11 @@ import { Component } from '@angular/core';
 })
 export class WorkoutListComponent {
 
-  userData = [
-    { id: 1, name: 'Ramesh Musk', workouts: [{ type: 'Running', minutes: 30 }, { type: 'Cycling', minutes: 45 }] },
-    { id: 2, name: 'Suresh Altman', workouts: [{ type: 'Swimming', minutes: 60 }, { type: 'Running', minutes: 20 }] },
-    { id: 3, name: 'Michael Jordan', workouts: [{ type: 'Yoga', minutes: 50 }, { type: 'Cycling', minutes: 40 }] },
-  ]
+  userData: any[] = [];
+
+  constructor(private router: Router, private workoutService: WorkoutService) {
+    this.userData = this.workoutService.getUserData();
+  }
 
   searchQuery: string = '';
   filterOption: string = '';
@@ -40,7 +42,7 @@ export class WorkoutListComponent {
 
     if (this.filterOption) {
       filteredData = filteredData.filter(user =>
-        user.workouts.some(w => w.type.toLowerCase() === this.filterOption.toLowerCase())
+        user.workouts.some((w: { type: any; }) => w.type.toLowerCase() === this.filterOption.toLowerCase())
       );
     }
 
@@ -57,7 +59,7 @@ export class WorkoutListComponent {
 
     if (this.filterOption) {
       filteredData = filteredData.filter(user =>
-        user.workouts.some(w => w.type.toLowerCase() === this.filterOption.toLowerCase())
+        user.workouts.some((w: { type: any; }) => w.type.toLowerCase() === this.filterOption.toLowerCase())
       );
     }
 
@@ -76,5 +78,9 @@ export class WorkoutListComponent {
     if (page > 0 && page <= this.totalPages) {
       this.currentPage = page;
     }
+  }
+
+  navigate() {
+    this.router.navigate(['/workoutList/workoutProgress']);
   }
 }
