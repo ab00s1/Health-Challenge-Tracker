@@ -8,9 +8,10 @@
   <!-- Search and Filter -->
   <div class="flex justify-between items-center mb-6 space-x-4">
     <input
+      (input)="handleSearch($event)"
       type="text"
       id="search"
-      placeholder="Search..."
+      placeholder="Search by name..."
       class="p-3 border border-gray-300 rounded-lg w-full md:w-3/4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#ffc861] focus:border-[#ffc861] transition ease-in-out"
     />
 
@@ -19,6 +20,7 @@
         >Filter by Workout Type:</label
       >
       <select
+        (change)="handleFilter($event)"
         id="workoutTypeFilter"
         class="p-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#ffc861] focus:border-[#ffc861] transition ease-in-out"
       >
@@ -51,23 +53,11 @@
       </tr>
     </thead>
     <tbody class="text-gray-700">
-      <tr class="border-b hover:bg-[#f9f9f9]">
-        <td class="p-4">John Doe</td>
-        <td class="p-4">Running, Cycling</td>
-        <td class="p-4">2</td>
-        <td class="p-4">75</td>
-      </tr>
-      <tr class="border-b hover:bg-[#f9f9f9]">
-        <td class="p-4">Jane Smith</td>
-        <td class="p-4">Swimming, Running</td>
-        <td class="p-4">2</td>
-        <td class="p-4">80</td>
-      </tr>
-      <tr class="border-b hover:bg-[#f9f9f9]">
-        <td class="p-4">Mike Johnson</td>
-        <td class="p-4">Yoga, Cycling</td>
-        <td class="p-4">2</td>
-        <td class="p-4">90</td>
+      <tr *ngFor="let user of paginatedData" class="border-b hover:bg-[#f9f9f9]">
+        <td class="p-4">{{ user.name }}</td>
+        <td class="p-4">{{ getWorkoutTypes(user) }}</td>
+        <td class="p-4">{{ user.workouts.length }}</td>
+        <td class="p-4">{{ getTotalMinutes(user) }}</td>
       </tr>
     </tbody>
   </table>
@@ -75,19 +65,22 @@
   <!-- Pagination -->
   <div class="pagination mt-6 flex justify-center space-x-2">
     <a
-      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      (click)="goToPage(currentPage - 1)"
+      class="p-3 cursor-pointer bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      *ngIf="currentPage > 1"
       >&laquo;</a
     >
     <a
-      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out active"
-      >1</a
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      (click)="goToPage(i + 1)"
+      [class.active]="currentPage === (i + 1)"
+      class="p-3 cursor-pointer bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      >{{i + 1}}</a
     >
     <a
-      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
-      >2</a
-    >
-    <a
-      class="p-3 bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      (click)="goToPage(currentPage + 1)"
+      class="p-3 cursor-pointer bg-[#ffc861] text-white rounded-lg hover:bg-[#e6b84d] transition ease-in-out"
+      *ngIf="currentPage < totalPages"
       >&raquo;</a
     >
   </div>
