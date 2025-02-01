@@ -1,26 +1,30 @@
 <main
-  class="fixed w-[40vw] h-[65vh] bg-gradient-to-bl from-orange-400/65 to-fuchsia-400/65 top-[50%] left-[50%] transform -translate-[50%] rounded-4xl"
+  class="fixed w-[90vw] md:w-[60vw] lg:w-[40vw] h-[80vh] md:h-[70vh] lg:h-[65vh] flex flex-col justify-evenly md:block bg-gradient-to-bl from-orange-400/65 to-fuchsia-400/65 top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 rounded-4xl p-4"
 >
-  <h2 class="text-4xl mx-2.5 my-4 text-white font-serif">Log Your Workout</h2>
-  <form (submit)="handleSubmit($event)" class="flex flex-col gap-1">
-    <label for="userName" class="m-5 flex flex-col">
-      <span class="text-lg font-semibold">Username :</span>
+  <h2
+    class="text-6xl md:text-3xl lg:text-4xl mx-2.5 my-4 text-white font-serif text-center"
+  >
+    <i>Log Your Workout</i>
+  </h2>
+  <form (submit)="handleSubmit($event)" class="flex flex-col gap-3">
+    <label for="userName" class="m-2 md:m-4 flex flex-col">
+      <span class="text-base md:text-lg font-semibold">Username :</span>
       <input
         type="text"
         name="userName"
         id="userName"
         required
-        class="p-2 mx-2.5 bg-amber-50 outline-0 rounded-lg text-black"
+        class="p-2 bg-amber-50 outline-0 rounded-lg text-black"
       />
     </label>
 
-    <label for="workoutType" class="m-5 flex flex-col">
-      <span class="text-lg font-semibold">Workout Type :</span>
+    <label for="workoutType" class="m-2 md:m-4 flex flex-col">
+      <span class="text-base md:text-lg font-semibold">Workout Type :</span>
       <select
         name="workoutType"
         id="workoutType"
         required
-        class="p-2 mx-2.5 bg-amber-50 outline-0 rounded-lg text-black"
+        class="p-2 bg-amber-50 outline-0 rounded-lg text-black"
       >
         <option value="" disabled selected>Select a workout</option>
         <option value="Running">Running</option>
@@ -36,19 +40,22 @@
       </select>
     </label>
 
-    <label for="workoutMinutes" class="m-5 flex flex-col">
-      <span class="text-lg font-semibold">Workout Minutes :</span>
+    <label for="workoutMinutes" class="m-2 md:m-4 flex flex-col">
+      <span class="text-base md:text-lg font-semibold">Workout Minutes :</span>
       <input
         type="number"
         placeholder="Workout time in minutes"
         name="workoutMinutes"
         id="workoutMinutes"
         required
-        class="py-2 px-3.5 mx-2.5 bg-amber-50 outline-0 rounded-lg text-black"
+        class="py-2 px-3.5 bg-amber-50 outline-0 rounded-lg text-black"
       />
     </label>
 
-    <button type="submit" class="mx-auto my-4 bg-white text-fuchsia-600 w-[25%] font-semibold cursor-pointer py-2 rounded-lg hover:bg-neutral-800 hover:text-white">
+    <button
+      type="submit"
+      class="mx-auto my-2 bg-white text-fuchsia-600 w-[50%] md:w-[35%] lg:w-[25%] font-semibold cursor-pointer py-2 rounded-lg hover:bg-neutral-800 hover:text-white"
+    >
       Add Workout &rightarrow;
     </button>
   </form>

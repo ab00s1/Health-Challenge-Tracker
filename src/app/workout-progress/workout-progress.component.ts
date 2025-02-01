@@ -30,19 +30,22 @@ export class WorkoutProgressComponent {
         this.selectedUser = this.userData[0];
       }
 
-      // Calculate total minutes after selecting user
       this.calculateTotalMinutes();
     });
   }
 
   selectUser(user: any) {
     this.selectedUser = user;
+
+    // Calculate total minutes after selecting user
+    this.calculateTotalMinutes();
   }
 
   calculateTotalMinutes() {
-    this.totalMinutes = this.userData.filter((data) => data == this.selectedUser).reduce(
-      (sum, user) => sum + user.workouts.reduce((wSum: any, w: { minutes: any; }) => wSum + w.minutes, 0),
+    this.totalMinutes = this.selectedUser.workouts.reduce(
+      (sum: any, workout: { minutes: any; }) => sum + workout.minutes,
       0
     );
+    // console.log(this.totalMinutes);
   }
 }

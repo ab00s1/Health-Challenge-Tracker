@@ -1,4 +1,9 @@
 a.active {
-    background-color: white;
-    color: goldenrod;
+  background-color: white;
+  color: goldenrod;
+}
+
+main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
