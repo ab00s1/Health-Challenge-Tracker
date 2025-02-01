@@ -105,7 +105,7 @@ This is a Single Page Application (SPA) built using Angular 14+. The app allows 
 * Data Persistence: User data is stored in the localStorage for persistence.
 * Unit Tests: Includes unit tests with code coverage report attached for components and services.
 
-### Cloud Deployment: The SPA is hosted on ***Netlify***.
+### Cloud Deployment: The SPA is hosted on ***[Netlify](https://health-challenger.netlify.app/)***.
 
 ## Libraries and Tools Used
 
