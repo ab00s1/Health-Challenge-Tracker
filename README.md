@@ -103,8 +103,9 @@ This is a Single Page Application (SPA) built using Angular 14+. The app allows 
 * Charts: Displays workout progress using charts (bonus feature).
 * Responsive UI: The app uses Tailwind CSS for responsive design.
 * Data Persistence: User data is stored in the localStorage for persistence.
-* Unit Tests: Includes unit tests with 100% code coverage for one component and one service.
-* Cloud Deployment: The SPA is hosted on Netlify.
+* Unit Tests: Includes unit tests with code coverage report attached for components and services.
+
+### Cloud Deployment: The SPA is hosted on ***Netlify***.
 
 ## Libraries and Tools Used
 
