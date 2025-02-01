@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'Health-Challenge-Tracker' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Health-Challenge-Tracker');
+    expect(app.title).toEqual('Hello, Health-Challenge-Tracker');
   });
 
   it('should render title', () => {

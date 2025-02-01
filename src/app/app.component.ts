@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Health-Challenge-Tracker';
+  title = 'Hello, Health-Challenge-Tracker';
 }
